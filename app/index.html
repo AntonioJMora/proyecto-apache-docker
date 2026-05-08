@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore — Componentes PC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <h1 class="logo">TechStore 💻</h1>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#historial" id="nav-historial" hidden>Mis compras</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-actions">
+        <button id="btn-login">Iniciar sesión</button>
+        <button id="btn-logout" hidden>Cerrar sesión</button>
+        <button id="btn-carrito" hidden>
+            🛒 Carrito <span id="num-carrito">0</span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section id="inicio" class="seccion-hero">
+        <h2>Bienvenido a TechStore</h2>
+        <p>Aquí puedes comprar todo tipo de componentes para tu ordenador.</p>
+        <p>Tenemos CPUs, tarjetas gráficas, RAM y mucho más.</p>
+        <button id="btn-hero">Entrar y comprar</button>
+    </section>
+
+    <section id="productos" class="seccion-productos">
+        <h2>Nuestros productos</h2>
+
+        <nav class="filtros" aria-label="Filtrar por categoría">
+            <button class="filtro activo" data-cat="todos">Todos</button>
+            <button class="filtro" data-cat="CPU">CPU</button>
+            <button class="filtro" data-cat="GPU">GPU</button>
+            <button class="filtro" data-cat="RAM">RAM</button>
+            <button class="filtro" data-cat="SSD">SSD</button>
+        </nav>
+
+        <section id="lista-productos" aria-label="Lista de productos">
+        </section>
+    </section>
+
+    <section id="historial" class="seccion-historial" hidden>
+        <h2>Mis compras 🧾</h2>
+        <div id="lista-historial">
+            <p id="historial-vacio" class="muted">No tienes compras todavía.</p>
+        </div>
+    </section>
+</main>
+
+<footer id="contacto" class="site-footer">
+    <p>TechStore &copy; 2025</p>
+    <p>Contacto: <a href="mailto:techstore@email.com">techstore@email.com</a></p>
+</footer>
+
+<!-- Modal login / registro -->
+<dialog id="modal-login">
+    <!-- Pestañas -->
+    <div class="modal-tabs">
+        <button class="tab activo" data-tab="login">Iniciar sesión</button>
+        <button class="tab" data-tab="registro">Crear cuenta</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="panel-login" class="tab-panel">
+        <p id="error-login" class="error" hidden></p>
+        <form id="form-login" method="post" action="javascript:void(0)" novalidate>
+            <label for="input-usuario">Usuario</label>
+            <input type="text" id="input-usuario" placeholder="Tu usuario" autocomplete="username">
+
+            <label for="input-contrasena">Contraseña</label>
+            <input type="password" id="input-contrasena" placeholder="Tu contraseña" autocomplete="current-password">
+
+            <button type="submit">Entrar</button>
+            <button type="button" id="btn-cancelar">Cancelar</button>
+        </form>
+        <p class="pista">Prueba: usuario / 1234 &nbsp;|&nbsp; jose / 5678</p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div id="panel-registro" class="tab-panel" hidden>
+        <p id="error-registro" class="error" hidden></p>
+        <p id="ok-registro" class="ok" hidden>¡Cuenta creada! Ya puedes iniciar sesión.</p>
+        <form id="form-registro" method="post" action="javascript:void(0)" novalidate>
+            <label for="reg-usuario">Usuario</label>
+            <input type="text" id="reg-usuario" placeholder="Elige un usuario" autocomplete="username">
+
+            <label for="reg-contrasena">Contraseña</label>
+            <input type="password" id="reg-contrasena" placeholder="Elige una contraseña" autocomplete="new-password">
+
+            <label for="reg-contrasena2">Repetir contraseña</label>
+            <input type="password" id="reg-contrasena2" placeholder="Repite la contraseña" autocomplete="new-password">
+
+            <button type="submit">Crear cuenta</button>
+            <button type="button" id="btn-cancelar-reg">Cancelar</button>
+        </form>
+    </div>
+</dialog>
+
+<aside id="panel-carrito" hidden>
+    <h2>Tu carrito 🛒</h2>
+    <section id="items-carrito"></section>
+    <p id="carrito-vacio">No hay nada en el carrito todavía.</p>
+    <p class="total">Total: <strong><span id="total-carrito">0</span> €</strong></p>
+    <button id="btn-comprar">Comprar ahora</button>
+    <button id="btn-cerrar-carrito">Cerrar</button>
+</aside>
+
+<p id="notificacion" class="notificacion" hidden></p>
+
+<script src="script.js"></script>
+</body>
+</html>

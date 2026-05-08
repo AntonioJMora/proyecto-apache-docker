@@ -1,0 +1,30 @@
+services:
+
+  web:
+    build: .
+    container_name: apache_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+    restart: on-failure
+
+  db:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: basedatos
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./app/api/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  db_data:
