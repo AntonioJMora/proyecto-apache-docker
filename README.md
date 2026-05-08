@@ -12,5 +12,5 @@ La tarea se ha realizado en docker, utilizando sobretodo la terminal y visual st
 
 <object data="documentacion.pdf" type="application/pdf" width="100%" height="600px">
     <p>El navegador no puede mostrar el PDF. 
-    <a href="ruta/a/tu/archivo.pdf">Descárgalo aquí.</a></p>
+    <a href="documentacion.pdf">Descárgalo aquí.</a></p>
 </object>
