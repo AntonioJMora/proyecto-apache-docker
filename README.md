@@ -11,6 +11,6 @@
 La tarea se ha realizado en docker, utilizando sobretodo la terminal y visual studio para modificar los archivos. La documentación se ha realizado mediante un word, asi que ahora dejo enlazado el pdf.
 
 <object data="documentacion.pdf" type="application/pdf" width="100%" height="600px">
-    <p>El navegador no puede mostrar el PDF. 
-    <a href="documentacion.pdf">Descárgalo aquí.</a></p>
+    <p>El navegador no puede mostrar el PDF <br/>
+    <a href="documentacion.pdf">Miralo aquí</a></p>
 </object>
